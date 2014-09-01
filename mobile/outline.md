@@ -1,44 +1,51 @@
-Mobile Segments
+Couchbase Mobile Developer Day
 ===============
+
+This is a first proposal for a new developer day intended to give a hands-on introduction to Couchbase Mobile.
+
+Pre-requisites
+---------------
+
+ * Laptop with a relevant development environment installed
+ * Phonegap tools installed or willingnes to run a VM provided by the instructor
+ * Basic JavaScript experience
+ * Flipchart/whiteboard for the room
 
 Content: 6h
 
-getting started with couchbase mobile - 3h
+Part one: Getting started with Couchbase Mobile - 3h
 ------------------------------------------
 
-Pre-requisites:
-
-- access to a laptop
-- phonegap tools installed or virtualbox to run the provided VM
-- basic Javascript experience
-
-### why couchbase lite? - 30min
+### Why Couchbase Lite? - 30min
 
 What is Couchbase Lite, what are the alternatives and what mobile-specific
-problems does it solve? This section is aimed at making the audience familiar
+problems does it solve? 
+
+This section is aimed at making the audience familiar
 with the issues of data sync and the ecosystem in which Couchbase Lite exists,
 as well as providing a general introduction to the Couchbase Mobile stack.
 
 - Introduction to the status quo:
-  - what we use now to store mobile data and their pros/cons
+  - what we use now to store mobile data and their pros/cons (remote, local, sync)
   - advantage of locality of data
   - the challenges of data synchronisation
 - Introducing Couchbase Lite
   - Overview of the Couchbase Lite model
   - Quick reference to Sync Gateway and the full Couchbase Mobile stack
+  - support platforms
   - demo
-  - supported platforms
-- Built-in replication / synchronization
+- Built-in replication / synchronisation
 
-### your first couchbase lite app - 1h
+### Your first Couchbase Lite app - 1h
 
 During this section the attendees will build a simple app that stores data in
 Couchbase Lite. The app allows people to record an up-vote or down-vote, similar
-to those found at some tech conferences to rate the speaker. We'll use the same
-back-end for everyone in the room, enabling us to record and view the votes from
-across the room once everyone has implemented their app. The attendees will
-create a document, read it back and then write it back after having incremented
-the vote count.
+to those found at some tech conferences to rate the speaker. 
+
+We'll use the same back-end for everyone in the room, enabling us to record and 
+view the votes from across the room once everyone has implemented their app. The 
+attendees will create a document, read it back and then write it back after having
+incremented the vote count.
 
 - Introduction to the UpVote/DownVote app
   - Demo of the app and outline of what will be covered
@@ -52,7 +59,7 @@ the vote count.
 
 ### Day to day development with Couchbase Lite - 45min
 
-The common concepts of developing with Couchbase Lite, going beyond the basic
+The every-day concepts of developing with Couchbase Lite, going beyond the basic
 CRUD functionality of the demo app.
 
 - Storing data
@@ -67,7 +74,7 @@ CRUD functionality of the demo app.
   - reduce queries and where to use them
   - live queries and where to use them.
 
-### dealing with change - 45min
+### Dealing with change - 45min
 
 Synchronisation and coping with conflict, presented by example of a to-do list
 data model.
@@ -80,51 +87,46 @@ data model.
   - how to resolve conflicts client-side
 
 
-data synchronization in depth - 3h
+Part two: Data synchronization in depth - 3h
 ----------------------------------
 
-Pre-requisites:
-- flipchart / whiteboard
+### Data modeling for Couchbase Mobile - 1.5h
 
-### data modeling for couchbase mobile - 1.5h
+Couchbase Mobile works best when we understand how to model our data to suit our
+access patterns. Here we'll look in detail at how to model data with Couchbase Mobile 
+taking into account common access requirements.
 
-As with Couchbase server, Couchbase mobile performs best when the data is
-modeled to facilitate the access patterns, so this section goes into detail on
-how to model data with couchbase mobile for different access needs.
-
-- Couchbase Lite Views
-  - Creating indexes via map views
+- Couchbase Lite views
+  - creating indexes via map views
   - processing data in reduce steps
-  - Common document structures to work with views
+  - common document structures for working with views
 - Key / Value access to documents
-  - Choosing good keys
-  - When to use K/V vs Views
+  - choosing good keys
+  - when to use K/V rather than views
 - Document attachments
-  - Use cases for attachments
-  - Attachment storage on the device and the server
-- Using Channels to segregate data
-  - Use cases of channels
-  - Limitations for channels
+  - use cases for attachments
+  - attachment storage on the device and the server
+- Using channels to segregate data
+  - Use cases for channels
+  - limitations of channels
 - Modeling for conflicts
-  - How to limit the conflicts through good data modeling
-  - Data structures to deal with conflicts
+  - how to limit conflicts through data modeling
+  - data structures to deal with conflicts
 
-### couchbase mobile - the server side - 1.5h
+### Couchbase Mobile: the server side - 1.5h
 
-When integration Couchbase Mobile in an existing architecture it is important to
-integrate it well on the server side as well as on the mobile app side. This
-section goes into detail how Couchbase Server and Sync Gateway work together to
-create a unified solution.
+Presenting the practicalities of working with Sync Gateway and integrating 
+Couchbase Mobile with Couchbase Server.
 
 - Interaction between Couchbase Server and Sync Gateway
-  - Syncing API to the outside
-  - Sync Gateway Buckets and views
-  - Bucket shadowing to make data accessible via Couchbase and Sync Gatway
+  - syncing API to the outside
+  - sync Gateway buckets and views
+  - bucket shadowing to make data accessible via Couchbase and Sync Gatway
 - Creating a sync function
-  - Authentication
-  - Roles
-  - Modifications
-- Resolving Conflicts outside the mobile applications
+  - authentication
+  - roles
+  - modifications
+- Resolving monflicts on the server side
   - using the changes feed
 - Scaling sync gateway in production
 
