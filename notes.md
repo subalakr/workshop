@@ -60,6 +60,45 @@ Aim: 12h of content
   - N1QL
   - GeoSpatial
 
+## Mobile
+
+- why couchbase lite
+  - demo
+  - platforms
+  - advantages of local data
+- getting setup
+  - setting up the SDK
+  - setting up sync gateway
+- datamodelling for couchbase mobile
+  - consistency model
+  - keys
+  - importing data
+  - channels
+  - attachments
+  - dealing with conflicts
+    - clientside via change callback
+    - server side via monitoring the changes feed
+- couchbase mobile views
+  - introduction to views
+  - view examples
+    - geo?
+  - querying a view
+    - live query
+- synchronization / replication
+  - setup
+  - continuous
+  - performance implications
+- couchbase mobile server side
+  - sync gateway
+  - sync function
+    - authorization / authentication
+  - sync bucket
+    - bucket shadowing
+  - scaling sync gateway
+  - server side conflict resolution
+    - serverside via node follow monitoring the changes feed
+
+
 ## Goals
 - Jump into code quicker
   - abstract is hard to follow
@@ -103,4 +142,6 @@ Aim: 12h of content
     - The Web interface
   - CRUD operations
 
-
+### How to support the developers
+- create git repositories with all the samples
+- tag each step in the repository to allow moving forward
