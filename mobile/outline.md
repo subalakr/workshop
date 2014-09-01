@@ -3,7 +3,7 @@ Mobile Segments
 
 Content: 4h
 
-getting started with couchbase mobile - 2h
+getting started with couchbase mobile - 3h
 ------------------------------------------
 
 - access to a laptop
@@ -15,39 +15,39 @@ getting started with couchbase mobile - 2h
 - supported platforms
 - build in replication / synchronization
 
-### your first couchbase lite app - 30min
+### your first couchbase lite app - 1h
 - getting setup with phonegap and a hello world app
 - setup couchbase lite for phonegap
 - create and read a document
 
-### developing with couchbase lite - 1h
+### developing with couchbase lite - 45min
 - storing data
 - couchbase lite views for indexing
 - queries
-- setting up synchronization
-- dealing with change
 
-data synchronization in depth - 2h
------------------------------
+### dealing with change - 45min
+- setting up synchronization
+- dealing with changes
+
+
+data synchronization in depth - 3h
+----------------------------------
 
 - flipchart / whiteboard
 
-### data modelling for couchbase mobile - 1h
+### data modelling for couchbase mobile - 1.5h
 - map and reduce views
 - keying documents
 - handling attachments
 - channels
 - dealing with conflicts
 
-### couchbase mobile - the server side - 1h
+### couchbase mobile - the server side - 1.5h
 - sync gateway and couchbase server
 - sync function
 - interfacing with existing data (bucket shadowing)
 - server side conflict resolution via changes feed
 - scaling sync gateway
-
-
-
 
 
 
