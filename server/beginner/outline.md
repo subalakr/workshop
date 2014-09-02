@@ -1,50 +1,81 @@
 Beginner Segments
 =================
 
+Status: Pre-draft
+
+Pre-requisites
+---------------
+
+ * Laptop with a relevant development environment installed
+ * Couchbase + Java SDK installed or willingness to run a VM provided by the instructor
+ * Basic Java experience
+ * Flipchart/whiteboard for the room
+
 Content: 4h
 
-hit the ground running - interaction with couchbase - 2h
+Hit the ground running - interaction with Couchbase - 2h
 --------------------------------------------------------
 
-- requires access to laptop with virtual box installed
-- virtual box machine with everything setup provided
+### Setting up Couchbase and web interface - 1h
 
-### setting up couchbase and web interface - 1h
+What is Couchbase and how do you interact with it.
 
-  - Installing Couchbase
-  - Interacting with the web interface
-  - creating buckets memcache / couchbase
-  - Explore creating removing and editing documents
-  - installing the sample data
+This section is about getting setup with Couchbase and storing and retrieving
+data from it.
 
-### your first couchbase app - 1h
+- Installing Couchbase
+  - Configuring Couchbase
+  - Setting up a bucket
+- Interacting with the web interface
+  - Storing and viewing documents
+  - Developing Views
+    - Writing basic indexes (map)
+    - Querying via the Web interface
+    - Reduce views
+    - Development vs Production Views
+- Basic Couchbase operations beyond the web interface
+  - CRUD, Replace, Add, Append, Prepend
 
-  - connecting to couchbase
-  - writing and reading data
-  - creating a login with session
-  - statistics with views
+### Your first Couchbase app - 1h
 
-how couchbase works - 2h
+From a developers point of view there is more to Couchbase then the Web
+interface, so how do you use an SDK to interact with it?
+
+This section is really about day to day development with Couchbase. Using the
+Java SDK as an example we explore the operations Couchbase supports and how to
+develop a simple app using it.
+
+- Connecting to Couchbase
+  - The Couchbase smart client
+  - Patterns for managing the connection
+- Storing and retrieving data
+  - Creating JSON objects in Java
+  - CRUD operations
+- Hands on
+  - Creating a login with session
+- Statistics with views
+  - Creating a view to show active sessions
+  - Querying views from Java
+
+How Couchbase works - 2h
 ------------------------
 
-- whiteboard / flipchart required
+### Exploring Couchbase - 1h
 
-### exploring couchbase - 1h
-
-  - reading data
-    - simple objects
-    - JSON
-  - storing data
-    - example
-    - consistency
-    - replication
-  - scaling out
+- reading data
+  - simple objects
+  - JSON
+- storing data
+  - example
+  - consistency
+  - replication
+- scaling out
 
 ### data modeling - 1h
 
-  - recap Data types
-  - JSON documents
-  - Modeling data as JSON
-  - Indexing
-  - Key Value access patterns
+- recap Data types
+- JSON documents
+- Modeling data as JSON
+- Indexing
+- Key Value access patterns
 
