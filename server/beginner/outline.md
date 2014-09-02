@@ -60,22 +60,41 @@ develop a simple app using it.
 How Couchbase works - 2h
 ------------------------
 
-### Exploring Couchbase - 1h
+### Data in Couchbase - 1h
 
-- reading data
-  - simple objects
-  - JSON
-- storing data
-  - example
-  - consistency
-  - replication
-- scaling out
+On the most simple level Couchbase is a Key Value store but there is more
+beneath the surface.
 
-### data modeling - 1h
+In this part we explore data structures and how they are persisted in Couchbase.
 
-- recap Data types
-- JSON documents
-- Modeling data as JSON
-- Indexing
-- Key Value access patterns
+- Storing data in Couchbase
+  - Data Types
+  - Consistency
+  - Replication
+- Retrieving data from Couchbase
+  - Using simple data types
+  - Mapping between JSON and Objects
+- Managing growth
+  - Scaling out Couchbase
+  - XDCR
+
+### Data modeling - 1h
+
+What are the concepts behind Couchbase and modeling data in a NoSQL world.
+
+This section explores the concepts of Data modeling for Couchbase and how the
+known concepts of the SQL world map to document databases like Couchbase
+
+- Modeling Data
+  - Recap on Data types
+  - JSON documents
+  - Dealing with references
+- Data access patterns
+  - Referential keys
+  - Ranges with Counters
+  - In-lining data
+- Map and Reduce Indexes (Views)
+  - When to use views
+  - Performance considerations
+  - Consistency considerations
 
