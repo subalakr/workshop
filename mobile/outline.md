@@ -1,13 +1,13 @@
 Couchbase Mobile Developer Day
-===============
+==============================
 
-This is a first proposal for a new developer day intended to give a hands-on introduction to Couchbase Mobile.
+Status: Draft
 
 Pre-requisites
 ---------------
 
  * Laptop with a relevant development environment installed
- * Phonegap tools installed or willingnes to run a VM provided by the instructor
+ * Phonegap tools installed or willingness to run a VM provided by the instructor
  * Basic JavaScript experience
  * Flipchart/whiteboard for the room
 
@@ -19,7 +19,7 @@ Part one: Getting started with Couchbase Mobile - 3h
 ### Why Couchbase Lite? - 30min
 
 What is Couchbase Lite, what are the alternatives and what mobile-specific
-problems does it solve? 
+problems does it solve?
 
 This section is aimed at making the audience familiar
 with the issues of data sync and the ecosystem in which Couchbase Lite exists,
@@ -44,10 +44,10 @@ as well as providing a general introduction to the Couchbase Mobile stack.
 
 During this section the attendees will build a simple app that stores data in
 Couchbase Lite. The app allows people to record an up-vote or down-vote, similar
-to those found at some tech conferences to rate the speaker. 
+to those found at some tech conferences to rate the speaker.
 
-We'll use the same back-end for everyone in the room, enabling us to record and 
-view the votes from across the room once everyone has implemented their app. The 
+We'll use the same back-end for everyone in the room, enabling us to record and
+view the votes from across the room once everyone has implemented their app. The
 attendees will create a document, read it back and then write it back after having
 incremented the vote count.
 
@@ -97,7 +97,7 @@ Part two: Data synchronization in depth - 3h
 ### Data modeling for Couchbase Mobile - 1.5h
 
 Couchbase Mobile works best when we understand how to model our data to suit our
-access patterns. Here we'll look in detail at how to model data with Couchbase Mobile 
+access patterns. Here we'll look in detail at how to model data with Couchbase Mobile
 taking into account common access requirements.
 
 - Couchbase Lite views
@@ -119,7 +119,7 @@ taking into account common access requirements.
 
 ### Couchbase Mobile: the server side - 1.5h
 
-Presenting the practicalities of working with Sync Gateway and integrating 
+Presenting the practicalities of working with Sync Gateway and integrating
 Couchbase Mobile with Couchbase Server.
 
 - Interaction between Couchbase Server and Sync Gateway
