@@ -22,6 +22,10 @@ as well as providing a general introduction to the Couchbase Mobile stack.
 - Introduction to the status quo:
   - what we use now to store mobile data and their pros/cons
   - advantage of locality of data
+  - the effects of data location:
+    - remote-only: covering the trade-offs of availability and responsiveness
+    - local-only: covering the trade-off of great responsiveness and availability versus an isolated app
+    - local with remote sync: the responsiveness and availability of a local app with asynchronous connectivity
   - the challenges of data synchronisation
 - Introducing Couchbase Lite
   - Overview of the Couchbase Lite model
