@@ -3,6 +3,13 @@ Beginner Segments
 
 Status: Pre-draft
 
+Target Audience
+---------------
+
+The content is for developers with some familiarity of Java but no NoSQL
+experience. It introduces the concepts of Couchbase hands on and getting started
+with the SDK.
+
 Pre-requisites
 ---------------
 
