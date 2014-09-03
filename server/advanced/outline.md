@@ -21,7 +21,7 @@ Pre-requisites
 
 Content: 4h
 
-Deep dive into developing with couchbase - 2.5h
+Deep dive into developing with couchbase - 4h
 ---------------------------------------------
 
 ### Client architecture by Java as an example - 1h
@@ -41,7 +41,7 @@ common operations.
 - Atomic operations
 - Driver architecture
 
-### Advanced client operations 1h
+### Advanced client operations 1.5h
 
 We have looked at the CRUD operations, now it is time to look into handling
 concurrent access to Couchbase, as well as using views to extract data.
@@ -57,12 +57,19 @@ the SDK.
 - Monitoring operations
   - Observing operations
   - ReplicateTo and PersistTo
-- Views
-  - Creating view queries
-    - Options
-  - Queries over HTTP
-  - Performance considerations
-  - Server side
+
+### Couchbase Views - 1h
+
+Couchbase supports secondary indexes, called views. They allow for some advanced
+data processing and access patterns.
+
+- Creating view queries
+  - Options
+- Queries over HTTP
+- Performance considerations
+- Server side
+  - Eventual consistency
+- Use cases for views
 
 ### 2 cents on N1QL - 30min
 
@@ -76,20 +83,3 @@ possible with Couchbase. So this section provides a quick intro to N1QL
   - Creating queries
   - Type safe queries
 
-Advanced data modeling techniques
----------------------------------
-
-### Document data modeling
-
-  - JSON
-  - Document references
-  - Embedding documents
-  - Concurrency
-  - Eventual consistency in view
-  - Modeling data by example
-
-### Key Value data modeling
-
-  - Advantages of Key Value Data models
-  - Key Patterns
-  - Modeling data by example
