@@ -1,8 +1,12 @@
 package com.couchbase.updownapp;
 
 import com.couchbase.client.java.Bucket;
+import com.couchbase.client.java.PersistTo;
 import com.couchbase.client.java.document.JsonDocument;
 import com.couchbase.client.java.document.json.JsonObject;
+import com.couchbase.client.java.view.Stale;
+import com.couchbase.client.java.view.ViewQuery;
+import com.couchbase.client.java.view.ViewRow;
 import rx.Observable;
 
 import java.util.Date;
@@ -88,8 +92,7 @@ public class Presentation {
 
     public Observable<Presentation> save() {
         if(isPersisted()) {
-           Presentation[] ps = {this};
-           return Observable.from(ps);
+           return Observable.just(this);
         }
 
         Observable<JsonDocument> op;
@@ -104,6 +107,25 @@ public class Presentation {
 
     public static Observable<Presentation> find(String key) {
         return client.get(key).map(jd -> fromJsonDocument(jd));
+    }
+
+
+    /*
+     * This relies on a view
+     * Design document: presentations
+     * View: all
+     *
+     * map:
+     * function(doc, meta) {
+     *   if (doc.type == "presentation") {
+     *     emit(dateToArray(doc.createdAt), null)
+     *   }
+     * }
+     */
+    public static Observable<Presentation> findAll() {
+        ViewQuery query = ViewQuery.from("presentations", "all").stale(Stale.FALSE);
+        Observable<ViewRow> rows = client.query(query).flatMap(vr -> vr.rows());
+        return rows.flatMap(row -> row.document()).map(doc -> fromJsonDocument(doc));
     }
 
     private static Presentation fromJsonDocument(JsonDocument jsonDocument) {
@@ -129,6 +151,7 @@ public class Presentation {
         content.put("upVotes", getUpVotes());
         content.put("downVotes", getDownVotes());
         content.put("createdAt", getCreatedAt().getTime());
+        content.put("type", "presentation");
 
         JsonDocument jsonDocument;
         if (getLoadedDocument() != null) {

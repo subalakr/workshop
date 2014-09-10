@@ -19,7 +19,7 @@ public class TestPresentation {
     public static void tearDown() {
         // flush the bucket to make sure we have a clean state again
         Bucket bucket = CouchbaseConnectionFactory.getDefaultConnection();
-        bucket.bucketManager().toBlocking().single().flush().toBlocking().single();
+//        bucket.bucketManager().toBlocking().single().flush().toBlocking().single();
     }
 
     @BeforeClass
@@ -30,7 +30,7 @@ public class TestPresentation {
     }
 
     @Test
-    public void testPresentationInitialiseWithDefaults() {
+    public void testInitialiseWithDefaults() {
         Presentation presentation = new Presentation();
         assertEquals(presentation.getTitle(), "");
         assertEquals(presentation.getUpVotes(), 0);
@@ -39,7 +39,7 @@ public class TestPresentation {
     }
 
     @Test
-    public void testPresentationSave() {
+    public void testSave() {
         Presentation presentation = new Presentation();
         String title = "Awesome stuff about Couchbase";
         presentation.setTitle(title);
@@ -48,13 +48,13 @@ public class TestPresentation {
     }
 
     @Test
-    public void testPresentationFind() {
+    public void testFind() {
         Presentation presentation = Presentation.find(testPresentation.getKey()).toBlocking().single();
         assertEquals(presentation.getTitle(), testPresentation.getTitle());
     }
 
     @Test
-    public void testPresentationUpdate() {
+    public void testUpdate() {
         Presentation presentation = Presentation.find(testPresentation.getKey()).toBlocking().single();
         presentation.setUpVotes(1);
         Presentation presentation1 = presentation.save().toBlocking().single(); // success saving
@@ -65,6 +65,12 @@ public class TestPresentation {
         } catch (CASMismatchException e) {
             assertTrue(true);
         }
+    }
+
+    @Test
+    public void testFindAll() {
+        Presentation presentation = Presentation.findAll().toBlocking().first();
+        assertNotNull(presentation);
     }
 
 }
