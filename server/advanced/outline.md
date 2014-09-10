@@ -52,11 +52,14 @@ the SDK.
 - Concurrent document access
   - Locking
     - Optimistic locking
+      - Tutorial dealing with optimistic locking
     - Pessimistic locking
-  - Performance considerations
 - Monitoring operations
   - Observing operations
   - ReplicateTo and PersistTo
+  - Tutorial using monitoring to observe operations
+- Performance considerations
+
 
 ### Couchbase Views - 1h
 
@@ -65,7 +68,8 @@ data processing and access patterns.
 
 - Creating view queries
   - Options
-- Queries over HTTP
+  - Queries over HTTP
+  - Tutorial on writing views and querying them
 - Performance considerations
 - Server side
   - Eventual consistency
@@ -79,6 +83,7 @@ possible with Couchbase. So this section provides a quick intro to N1QL
 - N1QL in general
   - Installing
   - Running queries
+  - Tutorial 
 - N1QL and the Java SDK
   - Creating queries
   - Type safe queries

@@ -23,7 +23,7 @@ Content: 4h
 Hit the ground running - interaction with Couchbase - 2h
 --------------------------------------------------------
 
-### Setting up Couchbase and web interface - 1h
+### Setting up Couchbase and using web interface - 1h
 
 What is Couchbase and how do you interact with it.
 
@@ -59,10 +59,22 @@ develop a simple app using it.
   - Creating JSON objects in Java
   - CRUD operations
 - Hands on
-  - Creating a login with session
+  - Creating a up and downvote app for presentations
+    - Create presentation documents
+    - record up and down votes
 - Statistics with views
-  - Creating a view to show active sessions
+  - Creating a view to show list all presentations
+  - Creating a view to aggregate the vote count
   - Querying views from Java
+
+Demo Application:
+
+Thumbs up / down voting application backend for presentations
+- Create presentations
+- Record votes ( +/-1 )
+- List all presentations
+- Aggregate votes over presentations
+
 
 How Couchbase works - 2h
 ------------------------
@@ -83,6 +95,8 @@ In this part we explore data structures and how they are persisted in Couchbase.
   - Mapping between JSON and Objects
 - Managing growth
   - Scaling out Couchbase
+    - Live introduction to extening the cluster
+    - Live Introduce to workload generator
   - XDCR
 
 ### Data modeling - 1h
