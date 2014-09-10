@@ -1,7 +1,6 @@
 package com.couchbase.updownapp;
 
 import com.couchbase.client.java.Bucket;
-import com.couchbase.client.java.PersistTo;
 import com.couchbase.client.java.document.JsonDocument;
 import com.couchbase.client.java.document.json.JsonObject;
 import com.couchbase.client.java.view.Stale;
