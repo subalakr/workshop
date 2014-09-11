@@ -19,7 +19,7 @@ public class TestPresentation {
     public static void tearDown() {
         // flush the bucket to make sure we have a clean state again
         Bucket bucket = CouchbaseConnectionFactory.getDefaultConnection();
-//        bucket.bucketManager().toBlocking().single().flush().toBlocking().single();
+        bucket.bucketManager().toBlocking().single().flush().toBlocking().single();
     }
 
     @BeforeClass
