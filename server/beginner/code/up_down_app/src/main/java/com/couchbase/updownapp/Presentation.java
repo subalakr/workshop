@@ -89,6 +89,25 @@ public class Presentation {
         return persisted;
     }
 
+    /*
+     * This method uses Lambdas, available starting Java 8. If you are note familiar with Lambdas,
+     * take a look at the following line of code:
+     *
+     *         return op.map(jd -> fromJsonDocument(jd));
+     *
+     * It would look like this without using Lambdas:
+     *
+     *        return op.map(new Func1<JsonDocument, Presentation>() {
+     *           @Override
+     *           public Presentation call(JsonDocument jsonDocument) {
+     *               return fromJsonDocument(jsonDocument);
+     *          }
+     *       });
+     *
+     * For more information about Lambdas, please follow this link:
+     *  http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
+     *
+     */
     public Observable<Presentation> save() {
         if(isPersisted()) {
            return Observable.just(this);
