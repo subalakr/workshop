@@ -66,7 +66,7 @@ License
 
 Apache 2
 
-[1]: https://github.com/sideshowcoder/Dev-Day-3.0/tree/master/server
-[2]: https://github.com/sideshowcoder/Dev-Day-3.0/tree/master/mobile
-[3]: https://github.com/sideshowcoder/Dev-Day-3.0/tree/master/server/beginner
-[4]: https://github.com/sideshowcoder/Dev-Day-3.0/tree/master/server/advanced
+[1]: ./server
+[2]: ./mobile
+[3]: ./server/beginner
+[4]: ./server/advanced

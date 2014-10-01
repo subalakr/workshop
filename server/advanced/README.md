@@ -24,5 +24,5 @@ Parts
 
 
 
-[1]: https://github.com/sideshowcoder/Dev-Day-3.0/blob/master/server/advanced/presentations/diving_into_the_java_sdk.pptx
+[1]: ./presentations/diving_into_the_java_sdk.pptx
 

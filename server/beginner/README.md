@@ -38,10 +38,10 @@ Parts
 - Common Couchbase data models by example
 
 
-[1]: https://github.com/sideshowcoder/Dev-Day-3.0/blob/master/server/beginner/presentations/0_couchbase_quick_intro.pptx
-[2]: https://github.com/sideshowcoder/Dev-Day-3.0/blob/master/server/beginner/presentations/1_setting_up_couchbase_and_the_webinterface.pptx
-[3]: https://github.com/sideshowcoder/Dev-Day-3.0/blob/master/server/beginner/presentations/2_your_first_application_with_couchbase.pptx
+[1]: ./presentations/0_couchbase_quick_intro.pptx
+[2]: ./presentations/1_setting_up_couchbase_and_the_webinterface.pptx
+[3]: ./presentations/2_your_first_application_with_couchbase.pptx
 [4]: https://github.com/sideshowcoder/Dev-Day-UpDownApp
-[5]: https://github.com/sideshowcoder/Dev-Day-3.0/blob/master/server/beginner/code/up_down_app/
-[6]: https://github.com/sideshowcoder/Dev-Day-3.0/blob/master/server/beginner/presentations/3_data_modeling_with_couchbase.pptx
+[5]: ./code/up_down_app/
+[6]: ./presentations/3_data_modeling_with_couchbase.pptx
 
