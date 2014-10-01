@@ -13,10 +13,8 @@ Pre-requisites
 
 Content: 6h
 
-Part one: Getting started with Couchbase Mobile - 3h
-------------------------------------------
 
-### Why Couchbase Lite? - 30min
+## Why Couchbase Lite? - 30min
 
 What is Couchbase Lite, what are the alternatives and what mobile-specific
 problems does it solve?
@@ -40,7 +38,7 @@ as well as providing a general introduction to the Couchbase Mobile stack.
   - demo
 - Built-in replication / synchronisation
 
-### Your first Couchbase Lite app - 1h
+## Your first Couchbase Lite app - 2h
 
 During this section the attendees will build a simple app that stores data in
 Couchbase Lite. The app allows people to record an up-vote or down-vote, similar
@@ -61,7 +59,7 @@ incremented the vote count.
   they're on the right course
 
 
-### Day to day development with Couchbase Lite - 45min
+## Day to day development with Couchbase Lite - 45min
 
 The every-day concepts of developing with Couchbase Lite, going beyond the basic
 CRUD functionality of the demo app.
@@ -78,7 +76,7 @@ CRUD functionality of the demo app.
   - reduce queries and where to use them
   - live queries and where to use them.
 
-### Dealing with change - 45min
+## Dealing with change - 45min
 
 Synchronisation and coping with conflict, presented by example of a to-do list
 data model.
@@ -91,10 +89,7 @@ data model.
   - how to resolve conflicts client-side
 
 
-Part two: Data synchronization in depth - 3h
-----------------------------------
-
-### Data modeling for Couchbase Mobile - 1.5h
+## Data modeling for Couchbase Mobile - 1h
 
 Couchbase Mobile works best when we understand how to model our data to suit our
 access patterns. Here we'll look in detail at how to model data with Couchbase Mobile
@@ -117,7 +112,7 @@ taking into account common access requirements.
   - how to limit conflicts through data modeling
   - data structures to deal with conflicts
 
-### Couchbase Mobile: the server side - 1.5h
+## Couchbase Mobile: the server side - 1h
 
 Presenting the practicalities of working with Sync Gateway and integrating
 Couchbase Mobile with Couchbase Server.

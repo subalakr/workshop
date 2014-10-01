@@ -21,27 +21,11 @@ Pre-requisites
 
 Content: 4h
 
-Deep dive into developing with couchbase - 4h
----------------------------------------------
+## Client architecture by Java as an example - 1h
 
-### Client architecture by Java as an example - 1h
+See README.md
 
-What does happen on the SDK level when you interact with Couchbase?
-
-In this part we go into detail on the Java SDK 2.0+, its current architecture
-and how it influences your application design. We do this by example of the
-common operations.
-
-- Couchbase operations using the Java SDK
-  - CRUD / prepend / append / increment / decrement
-  - Following the operations through the SDK
-    - Scheduling
-    - Connection multiplexing
-  - Operations server side
-- Atomic operations
-- Driver architecture
-
-### Advanced client operations 1.5h
+## Advanced client operations 1.5h
 
 We have looked at the CRUD operations, now it is time to look into handling
 concurrent access to Couchbase, as well as using views to extract data.
@@ -61,7 +45,7 @@ the SDK.
 - Performance considerations
 
 
-### Couchbase Views - 1h
+## Couchbase Views - 1h
 
 Couchbase supports secondary indexes, called views. They allow for some advanced
 data processing and access patterns.
@@ -75,7 +59,7 @@ data processing and access patterns.
   - Eventual consistency
 - Use cases for views
 
-### 2 cents on N1QL - 30min
+## 2 cents on N1QL - 30min
 
 While it is not released as of yet, N1QL provides an interesting insight what is
 possible with Couchbase. So this section provides a quick intro to N1QL
@@ -83,7 +67,7 @@ possible with Couchbase. So this section provides a quick intro to N1QL
 - N1QL in general
   - Installing
   - Running queries
-  - Tutorial 
+  - Tutorial
 - N1QL and the Java SDK
   - Creating queries
   - Type safe queries

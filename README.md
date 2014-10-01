@@ -18,6 +18,18 @@ to mix and match the parts acording to the needs and time contraints.
 You can find more for each section described in the README for the different top
 level parts.
 
+Pre-requisites
+---------------
+
+Hosting a developer day requires some setup, so make sure the following is
+available for each participant.
+
+- Laptop with a relevant development environment installed
+- Couchbase + Java SDK installed or willingness to run a VM provided by the instructor
+- Java experience
+- NoSQL experience
+- Flipchart/whiteboard for the room
+
 Status
 ------
 
@@ -58,4 +70,3 @@ Apache 2
 [2]: https://github.com/sideshowcoder/Dev-Day-3.0/tree/master/mobile
 [3]: https://github.com/sideshowcoder/Dev-Day-3.0/tree/master/server/beginner
 [4]: https://github.com/sideshowcoder/Dev-Day-3.0/tree/master/server/advanced
-[5]: https://github.com/sideshowcoder/Dev-Day-UpDownApp
