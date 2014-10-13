@@ -2,7 +2,7 @@ Couchbase Developer Day
 =======================
 
 Couchbase Developer Day and Lunch and Learn Material for 3.0 and beyond. The
-content is devided into a [server][SERVER] and a [mobile][MOBILE] part.
+content is devided into a [server][1] and a [mobile][2] part.
 
 For the server material there is an [advanced][4] and a beginner module, those
 mainly differ in the expectation of the audiences knowledge of Java as well as
