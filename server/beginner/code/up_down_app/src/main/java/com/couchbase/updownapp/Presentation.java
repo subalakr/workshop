@@ -118,7 +118,7 @@ public class Presentation {
     if(loadedDocument != null) {
       op = client.replace(toJsonDocument());
     } else {
-      op = client.upsert(toJsonDocument());
+      op = client.insert(toJsonDocument());
     }
 
     return op.map(jd -> fromJsonDocument(jd));
