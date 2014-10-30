@@ -53,7 +53,7 @@ incremented the vote count.
   - Demo of the app and outline of what will be covered
 - Install Couchbase Lite or the VM provided
 - Introduction to the environment
-  - Phonegap: add the Couchbase Lite plugin
+  - Getting setup with android Development for CouchbaseLite
 - 45 minutes to one hour to enable the attendees to implement the app
   - With access to a git repo, broken into steps, that enables people to check
   they're on the right course
