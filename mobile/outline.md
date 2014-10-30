@@ -77,7 +77,7 @@ CRUD functionality of the demo app.
   - live queries and where to use them.
 
 ## Dealing with change - 45min 
-[2. iteration]
+### [2. iteration]
 
 Synchronisation and coping with conflict, presented by example of a to-do list
 data model.
@@ -91,7 +91,7 @@ data model.
 
 
 ## Data modeling for Couchbase Mobile - 1h
-[2. iteration]
+### [2. iteration]
 
 Couchbase Mobile works best when we understand how to model our data to suit our
 access patterns. Here we'll look in detail at how to model data with Couchbase Mobile
