@@ -1,50 +1,36 @@
 package com.couchbase.devxp.updownvote;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import java.io.IOException;
+import android.widget.EditText;
 
 import com.couchbase.lite.*;
-import com.couchbase.lite.android.AndroidContext;
 import com.couchbase.lite.util.Log;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends ListActivity {
 
-    public static String TAG = "UpVoteDownVote";
-    public static String DBNAME = "upvotedownvote";
+    private Database database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        Manager manager;
-        Database database;
-
-        try {
-            manager = new Manager(new AndroidContext(this), Manager.DEFAULT_OPTIONS);
-            Log.d(TAG, "Created database manager");
-
-            if(!Manager.isValidDatabaseName(DBNAME)) {
-                Log.e(TAG, "Bad database name");
-                return;
-            }
-
-            try {
-                database = manager.getDatabase(DBNAME);
-                Log.d(TAG, "Database created");
-            } catch (CouchbaseLiteException e) {
-                Log.e(TAG, "Database creation failed");
-                return;
-            }
-        } catch (IOException e) {
-            Log.e(TAG, "Failed to create database manager");
-            return;
-        }
-
         super.onCreate(savedInstanceState);
+
+        Log.d(Application.TAG, "Starting MainActivity");
+        Application application = (Application) getApplication();
+
+        // Wire up the list view with the presentations in the Database via the Presentation Adapter for display
+        this.database = application.getDatabase();
+
+        Query all = Presentation.findAll(database);
+
+        setListAdapter(new PresentationAdapter(all.toLiveQuery(), this));
+
         setContentView(R.layout.activity_main);
     }
 
@@ -63,11 +49,45 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        // Wire up the button defined in the main_menu.xml
+        if (id == R.id.action_add) {
+            addPresentation();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // Create the button to add new presentations as needed
+    private void addPresentation() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Presentation Title");
+        final EditText input = new EditText(this);
+        input.setMaxLines(1);
+        input.setSingleLine(true);
+        alert.setView(input);
+
+        alert.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String title = input.getText().toString();
+                Presentation presentation = new Presentation(database);
+                presentation.setTitle(title);
+                try {
+                    presentation.save();
+                } catch (CouchbaseLiteException e) {
+                    Log.e(Application.TAG, "Failed to save presentation");
+                    return;
+                }
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) { }
+        });
+
+        alert.show();
+
     }
 }

@@ -18,13 +18,43 @@ import java.util.Objects;
  * Created by phil on 03/11/14.
  */
 public class Presentation {
-    public final String TYPE = "presentation";
+    public static final String TYPE = "presentation";
 
     private Date createdAt;
     private int upVotes;
     private int downVotes;
     private String title;
+    private Document sourceDocument;
     private Database database;
+
+    public static Query findAll(Database database) {
+
+        com.couchbase.lite.View view = database.getView("presentations");
+        if (view.getMap() == null) {
+            Mapper mapper = new Mapper() {
+                @Override
+                public void map(Map<String, Object> doc, Emitter emitter) {
+                    String type = (String) doc.get("type");
+                    if (type.equals(Presentation.TYPE)) {
+                        emitter.emit(doc.get("created_at"), doc);
+                    }
+                }
+            };
+            view.setMap(mapper, "2");
+        }
+        // TODO this should wrap the results in presentation objects
+        return view.createQuery();
+    }
+
+    public static Presentation from(Document document) {
+        Presentation presentation = new Presentation(document.getDatabase());
+        presentation.setTitle((String) document.getProperty("title"));
+        presentation.setCreatedAt(new Date((Long) document.getProperty("created_at")));
+        presentation.setDownVotes((Integer) document.getProperty("down_votes"));
+        presentation.setUpVotes((Integer) document.getProperty("up_votes"));
+        presentation.setSourceDocument(document);
+        return presentation;
+    }
 
     public Presentation(Database database) {
         this.createdAt = new Date();
@@ -36,12 +66,18 @@ public class Presentation {
 
     public void save() throws CouchbaseLiteException {
         Map<String, Object> properties = new HashMap<String, Object>();
+        Document document;
+        if (sourceDocument == null) {
+            document = database.createDocument();
+        } else {
+            document = sourceDocument;
+            properties.putAll(sourceDocument.getProperties());
+        }
         properties.put("type", TYPE);
         properties.put("created_at", createdAt.getTime());
         properties.put("title", title);
         properties.put("up_votes", upVotes);
         properties.put("down_votes", downVotes);
-        Document document = database.createDocument();
         try {
             document.putProperties(properties);
         } catch(CouchbaseLiteException e) {
@@ -68,6 +104,10 @@ public class Presentation {
 
     public String getTitle() {
         return title;
+    }
+
+    public void setSourceDocument(Document document) {
+        this.sourceDocument = document;
     }
 
     public void setTitle(String title) {
