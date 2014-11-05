@@ -9,6 +9,12 @@ on them (Thumbs up / Thumbs down).
 
 To make it easy there is no Authentication what-so-ever!
 
+StarterKit
+----------
+To get started quickly there is a starter kit located on [Github](https://github.com/couchbaselabs/CouchbaseLite-DevDay-StarterKit) to clone 
+and import into Android Studio. The TODOs in this StarterKit should guide people 
+through the development.
+
 Setup
 ----
 Clone down the Repository, and import into android Studio. The app is Runnable
