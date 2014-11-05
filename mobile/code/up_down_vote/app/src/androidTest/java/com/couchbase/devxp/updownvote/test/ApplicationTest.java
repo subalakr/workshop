@@ -46,13 +46,17 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
 
     public void testFindAndUpdatePresentation () {
         String title = "I am a test";
+        String newTitle = "I am updated";
         Presentation presentation = new Presentation(application.getDatabase());
         presentation.setTitle(title);
         try {
             presentation.save();
             QueryEnumerator presentations = Presentation.findAll(application.getDatabase()).run();
             Presentation loaded = Presentation.from(presentations.getRow(0).getDocument());
-            assertEquals(loaded.getTitle(), title);
+            loaded.setTitle(newTitle);
+            loaded.save();
+            Presentation loaded1 = Presentation.from(presentations.getRow(0).getDocument());
+            assertEquals(loaded1.getTitle(), newTitle);
         } catch (CouchbaseLiteException e) {
             fail();
         }

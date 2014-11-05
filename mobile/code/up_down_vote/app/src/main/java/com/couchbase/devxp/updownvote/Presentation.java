@@ -42,7 +42,6 @@ public class Presentation {
             };
             view.setMap(mapper, "2");
         }
-        // TODO this should wrap the results in presentation objects
         return view.createQuery();
     }
 
