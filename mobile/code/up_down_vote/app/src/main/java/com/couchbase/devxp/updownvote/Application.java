@@ -7,15 +7,10 @@ import com.couchbase.lite.android.AndroidContext;
 import com.couchbase.lite.replicator.Replication;
 import com.couchbase.lite.util.Log;
 
-import org.apache.http.client.HttpResponseException;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Created by phil on 03/11/14.
- */
 public class Application extends android.app.Application {
     public static String TAG = "UpVoteDownVote";
     private static final String SYNC_URL_HTTP = "http://localhost:4984/db";
@@ -73,6 +68,7 @@ public class Application extends android.app.Application {
     }
 
     // print out errors and see what is going on
+    @SuppressWarnings("ThrowableInstanceNeverThrown")
     private Replication.ChangeListener getReplicationChangeListener() {
         return new Replication.ChangeListener() {
             @Override
