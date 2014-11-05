@@ -24,4 +24,6 @@ The URL is set in the Application Class.
 
 Enjoy Voting!
 
+![Screenshot](https://raw.githubusercontent.com/couchbaselabs/Developer-Day/mobile-code/mobile/code/up_down_vote_screenshot.png)
+
 
