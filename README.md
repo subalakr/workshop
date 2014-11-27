@@ -30,36 +30,11 @@ available for each participant.
 - NoSQL experience
 - Flipchart/whiteboard for the room
 
-Status
-------
-
-### Beginner: DONE
-
-- Interacting with Couchbase: DONE
-- First Couchbase App: DONE
-- Data modeling: DONE
-
-### Advanced: IN PROGRESS
-
-- Client architecture by Java as an example: DONE
-- Advanced client operations: NEXT
-- Couchbase Views: SOON
-- 2 cents on N1QL: SOON
-
-### Mobile: FUTURE
-
-- Why Couchbase Lite: FUTURE
-- Your first Couchbase Lite app: FUTURE
-- Day to day development with Couchbase Lite: FUTURE
-- Dealing with change: FUTURE
-- Data modeling for Couchbase Mobile: FUTURE
-- Couchbase Mobile: the server side: FUTURE
-
-
 Related Materials
 -----------------
 
 - [Developer Day Sample App starting code is available][5]
+- [Mobile Developer Day Starter Kit][6]
 
 License
 -------
@@ -71,3 +46,4 @@ Apache 2
 [3]: ./server/beginner
 [4]: ./server/advanced
 [5]: https://github.com/couchbaselabs/UpDownApp-StarterKit
+[6]: https://github.com/couchbaselabs/CouchbaseLite-DevDay-StarterKit
