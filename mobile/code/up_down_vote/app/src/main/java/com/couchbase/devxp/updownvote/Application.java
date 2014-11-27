@@ -13,10 +13,12 @@ import java.net.URL;
 
 public class Application extends android.app.Application {
     public static String TAG = "UpVoteDownVote";
-    private static final String SYNC_URL_HTTP = "http://localhost:4984/db";
-    private static String DBNAME = "upvotedownvote";
+    private static final String SYNC_URL_HTTP = "http://10.0.2.2:4985/default";
+    private static String DBNAME = "default";
     private Database database = null;
     private Manager manager;
+    private Replication pull;
+    private Replication push;
 
     public Database getDatabase() {
         if(database == null) {
@@ -54,8 +56,8 @@ public class Application extends android.app.Application {
             return;
         }
 
-        Replication pull = database.createPullReplication(url);
-        Replication push = database.createPushReplication(url);
+        pull = database.createPullReplication(url);
+        push = database.createPushReplication(url);
 
         pull.setContinuous(true);
         push.setContinuous(true);
@@ -63,9 +65,9 @@ public class Application extends android.app.Application {
         pull.addChangeListener(getReplicationChangeListener());
         push.addChangeListener(getReplicationChangeListener());
 
-        pull.start();
-        push.start();
+        toggleOnSync();
     }
+
 
     // print out errors and see what is going on
     @SuppressWarnings("ThrowableInstanceNeverThrown")
@@ -98,6 +100,20 @@ public class Application extends android.app.Application {
         // Setup the Sync for Couchbase Lite to a Sync Gateway
         setupSync();
         super.onCreate();
+    }
+
+    public void toggleOffSync() {
+        pull.stop();
+        push.stop();
+    }
+
+    public void toggleOnSync() {
+        pull.start();
+        push.start();
+    }
+
+    public boolean isSyncOn() {
+        return pull.isRunning();
     }
 
 }

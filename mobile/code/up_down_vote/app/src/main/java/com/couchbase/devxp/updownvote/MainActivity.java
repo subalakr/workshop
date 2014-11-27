@@ -7,8 +7,10 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import android.widget.Switch;
 import com.couchbase.lite.*;
 import com.couchbase.lite.util.Log;
 
@@ -16,13 +18,14 @@ import com.couchbase.lite.util.Log;
 public class MainActivity extends ListActivity {
 
     private Database database;
+    private Application application;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Log.d(Application.TAG, "Starting MainActivity");
-        Application application = (Application) getApplication();
+        application = (Application) getApplication();
 
         // Wire up the list view with the presentations in the Database via the Presentation Adapter for display
         this.database = application.getDatabase();
@@ -39,6 +42,20 @@ public class MainActivity extends ListActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        final Menu m = menu;
+        final MenuItem item = menu.findItem(R.id.switchSyncLayout);
+        Switch sw = (Switch) item.getActionView().findViewById(R.id.switchSync);
+        sw.setChecked(application.isSyncOn());
+        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    application.toggleOnSync();
+                } else {
+                    application.toggleOffSync();
+                }
+            }
+        });
         return true;
     }
 
