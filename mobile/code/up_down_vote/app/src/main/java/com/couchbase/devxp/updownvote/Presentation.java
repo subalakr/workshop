@@ -47,10 +47,26 @@ public class Presentation {
 
     public static Presentation from(Document document) {
         Presentation presentation = new Presentation(document.getDatabase());
-        presentation.setTitle((String) document.getProperty("title"));
-        presentation.setCreatedAt(new Date((Long) document.getProperty("created_at")));
-        presentation.setDownVotes((Integer) document.getProperty("down_votes"));
-        presentation.setUpVotes((Integer) document.getProperty("up_votes"));
+        if (document.getProperty("title") != null) {
+            presentation.setTitle((String) document.getProperty("title"));
+        }
+        if (document.getProperty("created_at") != null){
+            long createdAtL = 0;
+            Object createdAt = document.getProperty("created_at");
+            if (createdAt instanceof Double){
+                createdAtL = ((Double) createdAt).longValue();
+            }
+            if (createdAt instanceof Long){
+                createdAtL = (Long) createdAt;
+            }
+            presentation.setCreatedAt(new Date(createdAtL));
+        }
+        if (document.getProperty("down_votes") != null) {
+            presentation.setDownVotes((Integer) document.getProperty("down_votes"));
+        }
+        if (document.getProperty("up_votes") != null){
+            presentation.setUpVotes((Integer) document.getProperty("up_votes"));
+        }
         presentation.setSourceDocument(document);
         return presentation;
     }
