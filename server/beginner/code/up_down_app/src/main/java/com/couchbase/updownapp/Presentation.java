@@ -3,10 +3,14 @@ package com.couchbase.updownapp;
 import com.couchbase.client.java.AsyncBucket;
 import com.couchbase.client.java.document.JsonDocument;
 import com.couchbase.client.java.document.json.JsonObject;
-import com.couchbase.client.java.view.Stale;
-import com.couchbase.client.java.view.ViewQuery;
-import com.couchbase.client.java.view.AsyncViewRow;
-import com.couchbase.client.java.view.AsyncViewResult;
+import com.couchbase.client.java.query.*;
+
+import static com.couchbase.client.java.query.Select.*;
+import static com.couchbase.client.java.query.dsl.Expression.x;
+import static com.couchbase.client.java.query.dsl.Expression.s;
+
+import com.couchbase.client.java.query.consistency.ScanConsistency;
+import com.couchbase.client.java.query.dsl.Sort;
 import rx.Observable;
 
 import java.util.Date;
@@ -128,25 +132,36 @@ public class Presentation {
     return client.get(key).map(jd -> fromJsonDocument(jd));
   }
 
+  public static void setupIndexes() {
+    AsyncQueryResult res = client.query(Query.simple("CREATE PRIMARY INDEX ON " + client.name())).toBlocking().single();
+    for (JsonObject error : res.errors().toBlocking().toIterable()) {
+      if (!error.getString("msg").contains("exists")) {
+        throw new RuntimeException("Couldn't create index: " + error);
+      }
+    }
+  }
 
   /*
-   * This relies on a view
-   * Design document: presentations
-   * View: all
-   *
-   * map:
-   * function(doc, meta) {
-   *   if (doc.type == "presentation") {
-   *     emit(dateToArray(doc.createdAt), null)
-   *   }
-   * }
+   * Relies on N1QL index. Ensure that setupIndexes() is called.
    */
   public static Observable<Presentation> findAll() {
-    ViewQuery query = ViewQuery.from("presentations", "all").stale(Stale.FALSE);
-    return client.query(query)
-      .flatMap(AsyncViewResult::rows)
-      .flatMap(AsyncViewRow::document)
-      .map(doc -> fromJsonDocument(doc));
+    Statement s = select("type", "title", "upVotes", "downVotes", "createdAt",
+            "STR_TO_UTC(createdAt) AS utcStamp",
+            "META(default).id AS docId")
+            .from(client.name())
+            .where(x("type").eq(s("presentation")))
+            .orderBy(Sort.asc("utcStamp"));
+    QueryParams params = QueryParams.build().consistency(ScanConsistency.REQUEST_PLUS);
+
+    System.err.println(s.toString());
+    return client.query(Query.simple(s, params))
+            .flatMap(AsyncQueryResult::rows)
+            .map(Presentation::fromQueryRow);
+  }
+
+  private static Presentation fromQueryRow(AsyncQueryRow row) {
+    JsonObject json = row.value();
+    return fromJsonDocument(JsonDocument.create(json.getString("docId"), json));
   }
 
   private static Presentation fromJsonDocument(JsonDocument jsonDocument) {

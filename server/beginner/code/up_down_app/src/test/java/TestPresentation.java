@@ -1,5 +1,8 @@
 import com.couchbase.client.java.Bucket;
 import com.couchbase.client.java.error.CASMismatchException;
+import com.couchbase.client.java.query.Query;
+import com.couchbase.client.java.query.QueryResult;
+import com.couchbase.client.java.query.QueryRow;
 import com.couchbase.updownapp.CouchbaseConnectionFactory;
 import com.couchbase.updownapp.Presentation;
 
@@ -70,6 +73,7 @@ public class TestPresentation {
 
     @Test
     public void testFindAll() {
+        Presentation.setupIndexes();
         Presentation presentation = Presentation.findAll().toBlocking().first();
         assertNotNull(presentation);
     }
