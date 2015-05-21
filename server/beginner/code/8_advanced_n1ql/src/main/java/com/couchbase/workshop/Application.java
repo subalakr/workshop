@@ -11,7 +11,7 @@ public class Application {
 
     @Bean
     public Bucket bucket() {
-        return CouchbaseCluster.create().openBucket();
+        return CouchbaseCluster.create().openBucket("travel-sample");
     }
 
     public static void main(String... args) {

@@ -96,9 +96,11 @@ public class IndexChecker implements InitializingBean, ApplicationContextAware {
                 indexType = IndexType.GSI;
             }
 
+
+            boolean primary = foundIndex.value().containsKey("is_primary") ? foundIndex.value().getBoolean("is_primary") : false;
             currentIndexes.add(new Index(
                 foundIndex.value().getString("name"),
-                foundIndex.value().getBoolean("is_primary"),
+                primary,
                 indexType,
                 (String[]) foundIndex.value().getArray("index_key").toList().toArray(new String[0])
             ));
