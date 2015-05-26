@@ -100,7 +100,7 @@ public class QueryController {
     public Map<String, Object> parameterized(@RequestParam String faa) {
 
         QueryResult query = bucket.query(Query.parametrized(
-                select(i(bucket.name()) + ".*").from(i(bucket.name())).where(x("faa").eq("?")),
+                select(i(bucket.name()) + ".*").from(i(bucket.name())).where(x("faa").eq("$1")),
                 JsonArray.from(faa))
         );
 
