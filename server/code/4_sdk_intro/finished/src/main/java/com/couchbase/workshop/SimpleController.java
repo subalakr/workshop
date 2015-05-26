@@ -52,11 +52,17 @@ public class SimpleController {
     @RequestMapping("/hello")
     public Map<String, Object> insert() {
         String id = "user::" + UUID.randomUUID().toString();
-        JsonObject content = JsonObject.create().put("hello", "world").put("type", "user");
+        JsonObject content = JsonObject
+            .create()
+            .put("hello", "world")
+            .put("nanotime", System.nanoTime())
+            .put("type", "user");
         JsonDocument document = JsonDocument.create(id, content);
 
-        JsonDocument stored = bucket.insert(document);
-        return stored.content().toMap();
+        bucket.insert(document);
+
+        JsonDocument loaded = bucket.get(id);
+        return loaded.content().toMap();
     }
 
     @RequestMapping("/world")
