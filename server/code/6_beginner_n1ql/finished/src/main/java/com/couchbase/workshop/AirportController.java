@@ -22,6 +22,7 @@
 package com.couchbase.workshop;
 
 import com.couchbase.client.java.Bucket;
+import com.couchbase.client.java.document.json.JsonObject;
 import com.couchbase.client.java.query.Query;
 import com.couchbase.client.java.query.QueryResult;
 import com.couchbase.client.java.query.QueryRow;
@@ -40,6 +41,7 @@ import static com.couchbase.client.java.query.dsl.Expression.i;
 import static com.couchbase.client.java.query.dsl.Expression.s;
 import static com.couchbase.client.java.query.dsl.Expression.x;
 import static com.couchbase.client.java.query.dsl.Sort.asc;
+import static com.couchbase.client.java.query.dsl.functions.ArrayFunctions.arrayLength;
 
 @RestController
 @RequestMapping("/airport")
@@ -124,6 +126,42 @@ public class AirportController {
             result.allRows().get(0).value().toMap(),
             HttpStatus.OK
         );
+    }
+
+    /**
+     * Returns all routes by the given airline.
+     *
+     * @param airline the airline to check.
+     * @return the list of routes.
+     */
+    @RequestMapping("/routes")
+    public ResponseEntity<List<String>> routesByAirline(@RequestParam String airline) {
+        QueryResult result = bucket.query(Query.simple(
+            select(
+                arrayLength("schedule").as("num_routes"),
+                x("sourceairport").as("source"),
+                x("destinationairport").as("dest"),
+                x("airline")
+            )
+                .from(i(bucket.name()))
+                .where(
+                    x("type").eq(s("route")).and(x("airline").eq(s(airline)))
+                )
+                .orderBy(asc("source"))
+        ));
+
+
+        List<String> destinations = new ArrayList<>();
+        for (QueryRow row : result) {
+            JsonObject value = row.value();
+            destinations.add(
+                value.getString("source")
+                    + " -> " + value.getString("dest")
+                    + ": " + value.getLong("num_routes")
+            );
+        }
+
+        return new ResponseEntity<List<String>>(destinations, HttpStatus.OK);
     }
 
 }
