@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "couchbase": "~2.0.8",
+    "express": "~4.12.4",
+    "uuid": "~2.0.1"
+  }
+}
