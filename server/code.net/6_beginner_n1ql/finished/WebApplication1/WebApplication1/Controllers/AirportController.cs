@@ -184,11 +184,15 @@ namespace WebApplication1.Controllers
             }
 
             return new ResponseEntity<List<String>>(destinations, HttpStatus.OK);
+
+            x("sourceairport").as("source"),
+                    x("destinationairport").as("dest"),
+                    x("airline")
+
             */
 
-            throw new NotImplementedException();
-
-            var query = "";
+            string query = "SELECT array_length(schedule) AS num_routes, sourceairport AS source, destinationairport AS dest, airline FROM `" + bucket.Name
+            + "` WHERE type = 'route' AND airline LIKE '%" + airline.ToUpper() + "%'";
 
             var request = new QueryRequest().Statement(query);
             var queryResult = bucket.Query<dynamic>(request);
