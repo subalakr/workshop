@@ -32,14 +32,13 @@ namespace WebApplication1.Controllers
                 Id = id,
                 Content = new
                 {
-                    Id = id,
                     Hello = "World",
                     Time = DateTime.Now.ToLongTimeString(),
                     Type = "user"
                 }
             };
 
-            bucket.Insert<dynamic>(id, document);
+            bucket.Insert(document);
 
             var loaded = bucket.Get<dynamic>(id);
             return Content(loaded.Value.ToString());
@@ -48,7 +47,7 @@ namespace WebApplication1.Controllers
         [ActionName("World")]
         public ActionResult Read()
         {
-            var query = bucket.Query<dynamic>(new Couchbase.N1QL.QueryRequest("SELECT COUNT (*) AS count FROM `travel-sample` WHERE type=`user`"));
+            var query = bucket.Query<dynamic>(new Couchbase.N1QL.QueryRequest("SELECT COUNT (*) AS count FROM `travel-sample` WHERE type='user'"));
 
             if (query.Rows.Any())
             {
