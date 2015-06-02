@@ -55,8 +55,8 @@ public class FlightpathController {
      * If you only have a primary index, this query will take 30 seconds or so! Speed it up with
      * these two indexes:
      *
-     *  - create index idx_dest on `travel-sample` (destinationairport);
-     *  - create index idx_source on `travel-sample` (sourceairport);
+     *  - create index idx_dest on `travel-sample` (destinationairport) using GSI;
+     *  - create index idx_source on `travel-sample` (sourceairport) using GSI;
      *
      * They will bring it down to a few hundred ms...
      *
