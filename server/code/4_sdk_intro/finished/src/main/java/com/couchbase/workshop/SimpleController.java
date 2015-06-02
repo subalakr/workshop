@@ -68,7 +68,9 @@ public class SimpleController {
     @RequestMapping("/world")
     public Integer read() {
         QueryResult result = bucket.query(Query.simple(
-            select(count("*").as("count")).from(i(bucket.name())).where(x("type").eq(s("user")))
+            select(count("*").as("count"))
+                .from(i(bucket.name()))
+                .where(x("type").eq(s("user")))
         ));
 
         return result.allRows().get(0).value().getInt("count");

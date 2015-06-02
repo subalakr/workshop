@@ -75,6 +75,7 @@ public class FlightpathController {
                .orderBy(asc("s.utc"))
        ));
 
+
         List<FlightPath> flightPaths = new ArrayList<>();
         for (QueryRow rows : result) {
             flightPaths.add(FlightPath.create(rows.value(), from, to));
