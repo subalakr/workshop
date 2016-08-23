@@ -1,0 +1,30 @@
+= Couchbase 2016 Connect Workshops
+
+Target Audience: broad range of developers interested in using Couchbase
+Objective: get developers up to speed to build an application with Couchbase Server
+Requirements: [write necessary prerequisites for the workshops (internet, etc)]
+
+== 1. Start Couchbase
+
+* Running on Desktop
+* Running on AWS / Azure
+* Running on Docker
+
+== 2. Using Couchbase
+
+* cbq
+* REST API
+* SDK Sample (.NET / Java / Node)
+
+== 3. Building an Application
+
+* Use an Angular frontend
+* Use .NET / Node / Java backend
+* Discuss data modeling
+* N1QL
+* SDK design patterns: async, timeouts, error handling
+
+== 4. Sample Couchbase Cluster
+
+* Simple docker cluster
+* Simple Amazon cluster

@@ -1,0 +1,9 @@
+= Couchbase 2016 Connect Workshops
+
+* Developer: All things application development, owned by Developer advocate team
+ 
+* Mobile: Couchbase Lite, Sync Gateway, etc
+
+* N1QL: Querying, indexing
+
+* Ops: Provisioning, networking
