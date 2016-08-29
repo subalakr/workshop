@@ -1,22 +1,26 @@
 = Couchbase 2016 Connect Workshops
 
+Workshops will be 9am – 3pm. 45 min lunch break, 15 min morning and afternoon break.
+
 Target Audience: broad range of developers interested in using Couchbase
 Objective: get developers up to speed to build an application with Couchbase Server
-Requirements: [write necessary prerequisites for the workshops (internet, etc)]
+Requirements:
+* Reliable wifi for the AWS/Cloud workshop
+* Thumb drives to distribute installation files/source code
 
-== 1. Start Couchbase
+== 1. Start Couchbase - 9-10a
 
 * Running on Desktop
 * Running on AWS / Azure
 * Running on Docker
 
-== 2. Using Couchbase
+== 2. Using Couchbase - 10:15a - 11:15a
 
 * cbq
 * REST API
 * SDK Sample (.NET / Java / Node)
 
-== 3. Building an Application
+== 3. Building an Application - 12p - 1:45p
 
 * Use an Angular frontend
 * Use .NET / Node / Java backend
@@ -24,7 +28,7 @@ Requirements: [write necessary prerequisites for the workshops (internet, etc)]
 * N1QL
 * SDK design patterns: async, timeouts, error handling
 
-== 4. Sample Couchbase Cluster
+== 4. Sample Couchbase Cluster - 2p - 3p
 
 * Simple docker cluster
 * Simple Amazon cluster
