@@ -47,7 +47,7 @@ will look at some common design patterns for using the SDK in popular languages 
 * Use .NET / Node / Java backend (maybe PHP)
 * Discuss data modeling
 * N1QL
-* SDK design patterns: async, timeouts, error handling
+* SDK design patterns: async, timeouts, error handling, scan consistency (more?)
 
 == 4. Sample Couchbase Cluster - 2p - 3p
 
