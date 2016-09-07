@@ -24,6 +24,8 @@ namespace DotnetExample
                 {
                     firstName = "Connie",
                     lastName = Path.GetRandomFileName(), // used to get random string
+                    city = Path.GetRandomFileName() + ", Ohio",
+                    country = "The United States of " + Path.GetRandomFileName(),
                     type = "person"
                 }
             };
@@ -37,7 +39,12 @@ namespace DotnetExample
             var result = _bucket.Query<dynamic>(query);
             foreach (var doc in result.Rows)
             {
-                Console.WriteLine($"Key {doc.documentKey}, firstName {doc.firstName}, lastName {doc.lastName}");
+                Console.WriteLine("----------");
+                Console.WriteLine($"Key: {doc.documentKey}");
+                Console.WriteLine($"\tfirstName: {doc.firstName}");
+                Console.WriteLine($"\tlastName: {doc.lastName}");
+                Console.WriteLine($"\tcity: {doc.city}");
+                Console.WriteLine($"\tcountry: {doc.country}");
             }
 
             CloseCouchbase();
