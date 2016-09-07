@@ -2,7 +2,7 @@
 
 The developer workshop will take you from zero-to-application in a day. You'll start by learning how to install and configure Couchbase Server locally
 or in the cloud. Once you have Couchbase Server running, you'll learn how to execute basic N1QL queries and how to start writing code with the SDK of your
-choice (Java, Node, and .NET will be covered). We'll build a full stack application using Angular, and discuss SDK design patterns. Finally, we'll
+choice (Java, Node, and .NET will be covered). We'll build a full stack CRUD application using Angular, and discuss SDK design patterns. Finally, we'll
 look at how to create a basic Couchbase Cluster. This is an all-day workshop.
 
 Workshops will be 9am – 3pm. 45 min lunch break, 15 min morning and afternoon break.
@@ -16,7 +16,7 @@ Requirements:
 == 1. Start Couchbase - 9-10a
 
 In this workshop, we will be learning how to do a simple installation of Couchbase Server. We will be going from nothing
-to a single node cluster. Instructions will be provided for a local install on Windows, OS X, and many popular Linux distros.
+to a single node cluster. Instructions will be provided for a local install on Windows, OS X, and Ubuntu 12/14 Linux distros.
 We will also cover the creation of a Couchbase Server instance on the popular cloud hosting platforms AWS and Azure.
 Finally, we will go over a single node installation in a Docker container (using Docker, Docker for Windows, or Docker for Mac).
 When this session is complete, you will be ready for the next workshop.
