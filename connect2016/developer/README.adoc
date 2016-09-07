@@ -1,5 +1,10 @@
 = Couchbase 2016 Connect Workshops
 
+The developer workshop will take you from zero-to-application in a day. You'll start by learning how to install and configure Couchbase Server locally
+or in the cloud. Once you have Couchbase Server running, you'll learn how to execute basic N1QL queries and how to start writing code with the SDK of your
+choice (Java, Node, and .NET will be covered). We'll build a full stack application using Angular, and discuss SDK design patterns. Finally, we'll
+look at how to create a basic Couchbase Cluster. This is an all-day workshop.
+
 Workshops will be 9am – 3pm. 45 min lunch break, 15 min morning and afternoon break.
 
 Target Audience: broad range of developers interested in using Couchbase
@@ -26,7 +31,7 @@ In this workshop, we will be going over some basic developer interactions with C
 to write and execute basic N1QL (SQL for JSON) queries in both the new Query Workbench and the cbq command line utility.
 We will also write a very simple program using the Couchbase SDK. This program will create a new document and store it in
 Couchbase, and it will also execute a N1QL query and display the results. Instructions will be provided for popular programming
-languages including: .NET, Java, and Node.js.
+languages including: Java, Node.js, and .NET.
 
 * Query Workbench / cbq
 * SDK Sample (.NET / Java / Node / maybe PHP)
@@ -36,7 +41,7 @@ languages including: .NET, Java, and Node.js.
 In this workshop, we will be building a full stack web application. We will be using Angular to create the UI, and it will
 make REST calls to a backend that interacts with Couchbase Server. Popular frameworks and languages will be covered, including
 ASP.NET WebAPI, Express.js, and Spring. We will continue discussing N1QL, and we'll also look at basic data modeling. Finally, we
-will look at some common design patterns for using the SDK in popular languages including: .NET, Node, and Java.
+will look at some common design patterns for using the SDK in popular languages including: Java, Node.js, and .NET.
 
 * Use an Angular frontend
 * Use .NET / Node / Java backend (maybe PHP)
@@ -47,7 +52,8 @@ will look at some common design patterns for using the SDK in popular languages 
 == 4. Sample Couchbase Cluster - 2p - 3p
 
 In this workshop, we will create a simple Couchbase Server cluster with multiple nodes. We will create a three node cluster
-through using Docker containers, and popular cloud services AWS and Azure.
+through using Docker containers, and popular cloud services AWS and Azure. Instructions will be provided for doing this with
+your choice of Docker, Amazon, or Azure.
 
 * Simple docker cluster
 * Simple Amazon cluster
