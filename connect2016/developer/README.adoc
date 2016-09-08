@@ -4,17 +4,18 @@ The workshop will show developers how to build a full-stack CRUD application wit
 
 Attendees will learn:
 
-. Different options to install and basic configuration of Couchbase
+. Different options to install Couchbase Server
+. Basic configuration of Couchbase Server
 . Data modeling for NoSQL applications
 . Basic N1QL syntax to manipulate data
-. Use Couchbase SDK to perform CRUD operations
+. How to use the Couchbase SDK to perform CRUD operations
 . Couchbase SDK design patterns and anti-patterns
 . Effective use of developer tools such as Query Workbench, Couchbase CLI and REST API
-. Create a simple Couchbase cluster using Docker and on cloud platforms such as Amazon and Azure
+. How to create a simple Couchbase cluster using Docker or cloud platforms such as Amazon and Azure
 
 === Target Audience
 
-Broad range of developers interested in using Couchbase
+Broad range of developers interested in using Couchbase Server
 
 === Requirements
 
