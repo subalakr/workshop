@@ -1,19 +1,27 @@
-= Couchbase 2016 Connect Workshops
+= Couchbase Connect 2016 Developer Workshop
 
-The developer workshop will take you from zero-to-application in a day. You'll start by learning how to install and configure Couchbase Server locally
-or in the cloud. Once you have Couchbase Server running, you'll learn how to execute basic N1QL queries and how to start writing code with the SDK of your
-choice (Java, Node, and .NET will be covered). We'll build a full stack CRUD application using Angular, and discuss SDK design patterns. Finally, we'll
-look at how to create a basic Couchbase Cluster. This is an all-day workshop.
+The workshop will show developers how to build a full-stack CRUD application with Couchbase server. Angular will be used for the frontend. Application code will be written using Java, Node or .NET. Couchbase will be used as the backend database. Couchbase will be used as the backend database.
 
-Workshops will be 9am – 3pm. 45 min lunch break, 15 min morning and afternoon break.
+Attendees will learn:
 
-Target Audience: broad range of developers interested in using Couchbase
-Objective: get developers up to speed to build an application with Couchbase Server
-Requirements:
+. Different options to install and basic configuration of Couchbase
+. Data modeling for NoSQL applications
+. Basic N1QL syntax to manipulate data
+. Use Couchbase SDK to perform CRUD operations
+. Couchbase SDK design patterns and anti-patterns
+. Effective use of developer tools such as Query Workbench and Couchbase CLI
+. Create a simple Couchbase cluster using Docker and on cloud platforms such as Amazon and Azure
+
+=== Target Audience
+
+Broad range of developers interested in using Couchbase
+
+=== Requirements
+
 * Reliable wifi for the AWS/Cloud workshop
 * Thumb drives to distribute installation files/source code
 
-== 1. Start Couchbase - 9-10a
+== Install and Configure Couchbase
 
 In this workshop, we will be learning how to do a simple installation of Couchbase Server. We will be going from nothing
 to a single node cluster. Instructions will be provided for a local install on Windows, OS X, and Ubuntu 12/14 Linux distros.
@@ -25,7 +33,7 @@ When this session is complete, you will be ready for the next workshop.
 * Running on AWS / Azure
 * Running on Docker
 
-== 2. Using Couchbase - 10:15a - 11:15a
+== Getting Familiar with Couchbase
 
 In this workshop, we will be going over some basic developer interactions with Couchbase Server. You'll learn about how
 to write and execute basic N1QL (SQL for JSON) queries in both the new Query Workbench and the cbq command line utility.
@@ -36,7 +44,7 @@ languages including: Java, Node.js, and .NET.
 * Query Workbench / cbq
 * SDK Sample (.NET / Java / Node / maybe PHP)
 
-== 3. Building an Application - 12p - 1:45p
+== Building a Full-stack Application
 
 In this workshop, we will be building a full stack web application. We will be using Angular to create the UI, and it will
 make REST calls to a backend that interacts with Couchbase Server. Popular frameworks and languages will be covered, including
@@ -49,12 +57,13 @@ will look at some common design patterns for using the SDK in popular languages 
 * N1QL
 * SDK design patterns: async, timeouts, error handling, scan consistency (more?)
 
-== 4. Sample Couchbase Cluster - 2p - 3p
+== Sample Couchbase Cluster
 
 In this workshop, we will create a simple Couchbase Server cluster with multiple nodes. We will create a three node cluster
 through using Docker containers, and popular cloud services AWS and Azure. Instructions will be provided for doing this with
 your choice of Docker, Amazon, or Azure.
 
-* Simple docker cluster
+* Simple Docker cluster
 * Simple Amazon cluster
 * Simple Azure cluster
+
