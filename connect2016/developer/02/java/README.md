@@ -6,9 +6,10 @@ Installation
 * Java 6 or higher
 * Maven
 
-This example uses couchbase-java-client version 2.3.3.
+This example uses couchbase-java-client version 2.3.3. It uses a bucket named "default".
 
 To run the example
 
-    mvn exec:java -Dexec.mainClass="couchbase.workshop.BasicN1QLExample"  
+    mvn compile
+    mvn exec:java -D exec.mainClass="couchbase.workshop.BasicN1QLExample"  
        
