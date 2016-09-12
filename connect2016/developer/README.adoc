@@ -22,6 +22,10 @@ Broad range of developers interested in using Couchbase Server
 * Reliable wifi for the AWS/Cloud workshop
 * Thumb drives to distribute installation files/source code
 
+=== Requirements for Attendees
+
+Requirements for Attendees: Bring a laptop. You should development environment setup for  coding in one of the following platforms/languages: .NET/C#, Java, Node.js. (Other languages are supported by Couchbase, but are not guaranteed to be covered in this workshop).
+
 == Install and Configure Couchbase
 
 In this workshop, we will be learning how to do a simple installation of Couchbase Server. We will be going from nothing
