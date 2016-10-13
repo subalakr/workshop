@@ -1,6 +1,6 @@
 = Couchbase Connect 2016 Developer Workshop
 
-The workshop will show developers how to build a full-stack CRUD application with Couchbase server. Angular will be used for the frontend. Application code will be written using Java, Node or .NET. Couchbase will be used as the backend database.
+The workshop will show developers how to build a full-stack CRUD application with Couchbase server. Angular will be used for the frontend. Application code will be written using Java, Node or .NET. Couchbase will be used as the backend database. You’ll learn how to do data modeling for a NoSQL-based application, learn Couchbase SDK design patterns, and learn about different tools to make you an effective user of Couchbase.
 
 Attendees will learn:
 
