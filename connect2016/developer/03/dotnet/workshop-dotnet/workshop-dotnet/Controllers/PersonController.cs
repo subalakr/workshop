@@ -41,7 +41,7 @@ namespace workshop_dotnet.Controllers
                 .Statement("SELECT `default`.* FROM `default` WHERE type = $1")
                 .AddPositionalParameter(typeof(Person).Name.ToLower())
                 .ScanConsistency(ScanConsistency.RequestPlus);
-            
+
             var result = await _bucket.QueryAsync<Person>(query);
             if (!result.Success)
             {
