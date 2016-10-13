@@ -15,5 +15,16 @@ namespace workshop_dotnet.Models
 
         [JsonProperty("email")]
         public string Email { get; set; }
+
+        [JsonProperty("type")]
+        public string Type => typeof(Person).Name.ToLower();
+
+        public bool IsValid()
+        {
+            return !string.IsNullOrEmpty(Id) &&
+                   !string.IsNullOrEmpty(FirstName) &&
+                   !string.IsNullOrEmpty(LastName) &&
+                   !string.IsNullOrEmpty(Email);
+        }
     }
 }

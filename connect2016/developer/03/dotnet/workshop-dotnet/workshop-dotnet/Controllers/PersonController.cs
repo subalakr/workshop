@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Couchbase;
@@ -20,13 +21,13 @@ namespace workshop_dotnet.Controllers
         {
             if (string.IsNullOrEmpty(id))
             {
-                return BadRequest();
+                return BadRequest("Missing or empty 'id' query string parameter");
             }
 
-            var result = await _bucket.GetAsync<dynamic>(id);
+            var result = await _bucket.GetAsync<Person>(id);
             if (!result.Success)
             {
-                return InternalServerError();
+                return Content(HttpStatusCode.InternalServerError, result.Exception?.Message ?? result.Message);
             }
 
             return Ok(result.Value);
@@ -36,14 +37,15 @@ namespace workshop_dotnet.Controllers
         [Route("getAll")]
         public async Task<IHttpActionResult> Getall()
         {
-            var query = new QueryRequest("SELECT * FROM $1 WHERE type = $2")
-                .AddPositionalParameter(BucketName, typeof(Person).Name)
+            var query = new QueryRequest()
+                .Statement("SELECT `default`.* FROM `default` WHERE type = $1")
+                .AddPositionalParameter(typeof(Person).Name.ToLower())
                 .ScanConsistency(ScanConsistency.RequestPlus);
 
             var result = await _bucket.QueryAsync<Person>(query);
             if (!result.Success)
             {
-                return InternalServerError();
+                return Content(HttpStatusCode.InternalServerError, result.Exception?.Message ?? result.Message);
             }
 
             return Ok(result.Rows);
@@ -53,15 +55,15 @@ namespace workshop_dotnet.Controllers
         [Route("save")]
         public async Task<IHttpActionResult> Save([FromBody] Person person)
         {
-            if (person == null)
+            if (person == null || !person.IsValid())
             {
-                return BadRequest();
+                return BadRequest("Missing or invalid body content");
             }
 
             var result = await _bucket.UpsertAsync(person.Id, person);
             if (!result.Success)
             {
-                return InternalServerError();
+                return Content(HttpStatusCode.InternalServerError, result.Exception?.Message ?? result.Message);
             }
 
             return Ok();
@@ -73,13 +75,13 @@ namespace workshop_dotnet.Controllers
         {
             if (string.IsNullOrEmpty(person?.Id))
             {
-                return BadRequest();
+                return BadRequest("Missing or invalid 'document_id' body parameter");
             }
 
             var result = await _bucket.RemoveAsync(person.Id);
             if (!result.Success)
             {
-                return InternalServerError();
+                return Content(HttpStatusCode.InternalServerError, result.Exception?.Message ?? result.Message);
             }
 
             return Ok();
